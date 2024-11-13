@@ -1,0 +1,33 @@
+#include <stdio.h>
+struct Date
+{
+    int day;
+    int month;
+    int year;
+};
+struct Student
+{
+    char name[50];
+    int roll_no;
+    struct Date birth_date;
+};
+int main()
+{
+    struct Student student;
+
+    printf("Enter student's name: ");
+    fgets(student.name, sizeof(student.name), stdin);
+
+    printf("Enter student's roll number: ");
+    scanf("%d", &student.roll_no);
+
+    printf("Enter student's birth date (day month year): ");
+    scanf("%d %d %d", &student.birth_date.day, &student.birth_date.month, &student.birth_date.year);
+
+    printf("\nStudent Information:\n");
+    printf("Name: %s", student.name);
+    printf("Roll Number: %d\n", student.roll_no);
+    printf("Birth Date: %d/%d/%d\n", student.birth_date.day, student.birth_date.month, student.birth_date.year);
+
+    return 0;
+}
