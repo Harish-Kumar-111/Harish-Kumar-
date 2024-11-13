@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main()
+{
+    FILE *file;
+    char ch;
+    int lines = 0;
+    file = fopen("example.txt", "r");
+    if (file == NULL)
+    {
+        printf("Error opening file.\n");
+        return 1;
+    }
+    while ((ch = fgetc(file)) != EOF)
+    {
+        if (ch == '\n')
+        {
+            lines++;
+        }
+    }
+    printf("Total number of lines in the file: %d\n", lines);
+    fclose(file);
+    return 0;
+}
