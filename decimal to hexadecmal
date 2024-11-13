@@ -1,0 +1,28 @@
+#include <stdio.h>
+void decimalToHexadecimal(int n)
+{
+    if (n > 15)
+    {
+        decimalToHexadecimal(n / 16);
+    }
+    int remainder = n % 16;
+    if (remainder < 10)
+        printf("%d", remainder);
+    else
+        printf("%c", remainder - 10 + 'A');
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a decimal number: ");
+    scanf("%d", &num);
+
+    printf("Hexadecimal equivalent: ");
+    decimalToHexadecimal(num);
+
+    printf("\n");
+
+    return 0;
+}
