@@ -1,0 +1,14 @@
+#include <stdio.h>
+union Example
+{
+    int a;
+    float b;
+    char c;
+};
+
+int main()
+{
+    union Example ex;
+    printf("Size of union Example: %lu bytes\n", sizeof(ex));
+    return 0;
+}
