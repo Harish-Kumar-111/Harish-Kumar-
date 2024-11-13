@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+struct Student
+{
+    char name[50];
+    int age;
+};
+
+int main()
+{
+    struct Student students[3] = 
+{
+        {"John", 22},
+        {"Alice", 20},
+        {"Bob", 21}
+    };
+    struct Student temp;
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = i + 1; j < 3; j++)
+        {
+            if (students[i].age > students[j].age)
+            {
+                temp = students[i];
+                students[i] = students[j];
+                students[j] = temp;
+            }
+        }
+    }
+
+    printf("Sorted students by age:\n");
+    for (int i = 0; i < 3; i++)
+    {
+        printf("%s, %d years old\n", students[i].name, students[i].age);
+    }
+
+    return 0;
+}
